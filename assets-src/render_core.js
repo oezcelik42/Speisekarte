@@ -43,7 +43,7 @@
     function flavorsHtml(it) {
       if (!it.flavors) return "";
       const DOT = { blaubeere: "#4b3a8c", mango: "#f2b632", erdbeere: "#e0414f", ananas: "#f3cf45", kokos: "#f4efe4", vanille: "#f1e2bd", karamell: "#c88a3c", haselnuss: "#8a5a35" };
-      const CHIPIMG = { blaubeere: 1, mango: 1, erdbeere: 1, ananas: 1 };
+      const CHIPIMG = { blaubeere: 1, mango: 1, erdbeere: 1, ananas: 1, kokos: 1 };
       return `<div class="flavors" role="group" aria-label="${esc(U("tap_flavor"))}">` +
         it.flavors.map(([k, im], i) => {
           const icon = CHIPIMG[k] ? img("chip-" + k) : `<span class="dot" style="background:${DOT[k]}"></span>`;
