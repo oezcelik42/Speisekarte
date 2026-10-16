@@ -320,7 +320,11 @@ HEISS = [
                    "İnce öğütülmüş Japon yeşil çayı, köpüklü sütle – yumuşak ve hafif buruk.",
                    "Finely ground Japanese green tea with frothed milk – smooth and slightly grassy."),
             img="matcha-latte"),
-        row("heisse-schokolade", L("Heiße Schokolade", "Sıcak Çikolata", "Hot chocolate"), "4,50"),
+        row("heisse-schokolade", L("Heiße Schokolade", "Sıcak Çikolata", "Hot chocolate"), "4,50",
+            info=L("Schokolade mit heißer, aufgeschäumter Milch – cremig und süß.",
+                   "Sıcak ve köpürtülmüş sütle çikolata – kremamsı ve tatlı.",
+                   "Chocolate with hot frothed milk – creamy and sweet."),
+            img="heisse-schokolade"),
     ]),
     dict(name=L("Kaffee", "Kahve", "Coffee"), img="cafe-creme", rows=[
         row("cafe-creme", L("Café Creme", "Café Crème", "Café crème"), sizes=[[M, "3,20"]],
