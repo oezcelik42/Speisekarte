@@ -61,6 +61,7 @@ UI = {
 ALLERGENS = {
     "A": L("glutenhaltiges Getreide", "glütenli tahıl", "cereals containing gluten"),
     "C": L("Eier", "yumurta", "eggs"),
+    "F": L("Soja", "soya", "soy"),
     "G": L("Milch / Laktose", "süt / laktoz", "milk / lactose"),
     "H": L("Schalenfrüchte (Nüsse)", "sert kabuklu yemişler", "tree nuts"),
 }
@@ -196,12 +197,12 @@ DESSERT_NOTES = [
          name=L("Extra Eis – eine Kugel Maraş-Eis zu jedem Dessert",
                 "Ekstra dondurma – her tatlıya bir top Maraş dondurması",
                 "Extra ice cream – a scoop of Maraş ice cream with any dessert"),
-         price="+ 2,00"),
+         price="+ 2,00", al="G"),
     dict(kind="takeaway", label=L("Baklava zum Mitnehmen · pro Kilo", "Paket baklava · kilogram",
                                   "Baklava to go · per kilo"),
          rows=[[L("Walnuss", "Cevizli", "Walnut"), "30,00"],
                [L("Pistazie klassisch", "Fıstıklı (klasik)", "Pistachio (classic)"), "35,00"],
-               [L("Pistazienrolle", "Fıstık sarma", "Pistachio roll"), "40,00"]]),
+               [L("Pistazienrolle", "Fıstık sarma", "Pistachio roll"), "40,00"]], al="A, G, H"),
 ]
 
 # ---------------------------------------------------------------- Herzhaft
@@ -376,17 +377,17 @@ KALT = [
     ]),
     dict(name=L("Kalter Kaffee", "Soğuk Kahve", "Iced coffee"), items=[
         dict(id="ice-latte", img="ice-latte", kind="single", price="5,00",
-             name=L("Ice Latte", "Ice Latte", "Iced latte"),
+             name=L("Iced Latte", "Iced Latte", "Iced latte"),
              sub=L("Espresso, kalte Milch, Eis", "espresso, soğuk süt, buz", "espresso, cold milk, ice")),
         dict(id="ice-latte-sirup", img="ice-latte-vanille", kind="single", price="5,50",
-             name=L("Ice Latte mit Sirup", "Şuruplu Ice Latte", "Iced latte with syrup"),
+             name=L("Iced Latte mit Sirup", "Şuruplu Iced Latte", "Iced latte with syrup"),
              flavors=[["vanille", "ice-latte-vanille"], ["karamell", "ice-latte-karamell"],
                       ["haselnuss", "ice-latte-haselnuss"]]),
         dict(id="ice-americano", img="ice-americano", kind="single", price="4,00",
-             name=L("Ice Americano", "Ice Americano", "Iced americano"),
+             name=L("Iced Americano", "Iced Americano", "Iced americano"),
              sub=L("Espresso und Wasser auf Eis", "buzlu espresso ve su", "espresso and water over ice")),
         dict(id="ice-spanish-latte", img="ice-latte-spanish", kind="single", price="6,50",
-             name=L("Ice Spanish Latte", "Ice Spanish Latte", "Iced Spanish latte"),
+             name=L("Iced Spanish Latte", "Iced Spanish Latte", "Iced Spanish latte"),
              sub=L("mit gesüßter Kondensmilch und Zimt", "şekerli yoğunlaştırılmış süt ve tarçın ile",
                    "with sweetened condensed milk and cinnamon"),
              info=L("Espresso mit gesüßter Kondensmilch, kalter Milch und Zimt auf Eis – süß, cremig und leicht würzig.",
@@ -396,7 +397,7 @@ KALT = [
     ]),
     dict(name=L("Matcha", "Matcha", "Matcha"), items=[
         dict(id="ice-matcha", img="matcha", kind="single", price="5,50",
-             name=L("Ice Matcha Latte", "Ice Matcha Latte", "Iced matcha latte"),
+             name=L("Iced Matcha Latte", "Iced Matcha Latte", "Iced matcha latte"),
              sub=L("frisch aufgeschlagen", "taze çırpılmış", "freshly whisked"),
              info=L("Fein gemahlener japanischer Grüntee, frisch aufgeschlagen, mit kalter Milch auf Eis – "
                     "sanft, leicht herb und mit natürlichem Koffein.",
@@ -406,7 +407,7 @@ KALT = [
                     "slightly grassy and naturally caffeinated."),
              media={"img": "matcha"}),
         dict(id="ice-matcha-frucht", img="matcha-erdbeere", kind="single", price="6,50",
-             name=L("Ice Matcha mit Frucht", "Meyveli Ice Matcha", "Iced matcha with fruit"),
+             name=L("Iced Matcha mit Frucht", "Meyveli Iced Matcha", "Iced matcha with fruit"),
              flavors=[["erdbeere", "matcha-erdbeere"], ["mango", "matcha-mango"],
                       ["blaubeere", "matcha-blaubeere"], ["kokos", "matcha-kokos"]],
              info=L("Erst die Frucht, dann Milch und Eis, obendrauf frisch aufgeschlagener Matcha. "
@@ -415,7 +416,7 @@ KALT = [
                     "Fruit first, then milk and ice, topped with freshly whisked matcha. Stir before you sip!"),
              media={"video": "matcha-frucht"}),
         dict(id="ice-spanish-matcha", img="matcha-spanish", kind="single", price="6,90",
-             name=L("Ice Spanish Matcha Latte", "Ice Spanish Matcha Latte", "Iced Spanish matcha latte"),
+             name=L("Iced Spanish Matcha Latte", "Iced Spanish Matcha Latte", "Iced Spanish matcha latte"),
              sub=L("mit gesüßter Kondensmilch", "şekerli yoğunlaştırılmış süt ile", "with sweetened condensed milk"),
              info=L("Matcha mit gesüßter Kondensmilch und kalter Milch auf Eis – süß, cremig und grün.",
                     "Matcha, şekerli yoğunlaştırılmış süt ve soğuk süt, buzla – tatlı, kremamsı ve yeşil.",
@@ -426,7 +427,8 @@ KALT = [
 MILK = dict(label=L("Milch nach Wahl", "Süt seçimi", "Choice of milk"),
             sub=L("für Kaffee & Matcha", "kahve ve matcha için", "for coffee & matcha"),
             opts=[L("Kuhmilch", "İnek sütü", "Cow's milk"), L("Laktosefrei", "Laktozsuz", "Lactose-free"),
-                  L("Hafermilch", "Yulaf sütü", "Oat milk"), L("Kokosmilch", "Hindistan cevizi sütü", "Coconut milk")])
+                  L("Hafermilch", "Yulaf sütü", "Oat milk"), L("Kokosmilch", "Hindistan cevizi sütü", "Coconut milk")],
+            al=["G", "G", "A", ""])
 
 CATS = [
     dict(id="helva", chip=L("Helva", "Helva", "Helva"),
@@ -439,11 +441,11 @@ CATS = [
     dict(id="desserts", chip=L("Desserts", "Tatlılar", "Desserts"),
          kicker=L("Süße Klassiker", "Klasik tatlılar", "Sweet classics"),
          title=L("Türkische Desserts", "Tatlılar", "Turkish desserts"),
-         items=DESSERTS, notes=DESSERT_NOTES, allergens="A, G, H"),
+         items=DESSERTS, notes=DESSERT_NOTES),
     dict(id="herzhaft", chip=L("Herzhaft", "Tuzlular", "Savoury"),
          kicker=L("Herzhaft", "Tuzlu lezzetler", "Savoury"),
          title=L("Türkische Spezialitäten", "Hamur İşleri", "Turkish specialities"),
-         items=HERZHAFT, sandwich_head=SANDWICH_HEAD, sandwiches=SANDWICHES, allergens="A, C, G, H"),
+         items=HERZHAFT, sandwich_head=SANDWICH_HEAD, sandwiches=SANDWICHES),
     dict(id="heiss", chip=L("Heiße Getränke", "Sıcak İçecekler", "Hot drinks"),
          kicker=L("Frisch aufgebrüht", "Taze demlenmiş", "Freshly brewed"),
          title=L("Warme Getränke", "Sıcak İçecekler", "Hot drinks"),
@@ -453,5 +455,47 @@ CATS = [
          title=L("Kalte Getränke", "Soğuk İçecekler", "Cold drinks"),
          cgroups=KALT, milk=MILK),
 ]
+
+# Allergene je Produkt (Buchstaben wie in der Legende), Wunsch des Nutzers vom 16.10. Aus den üblichen Zutaten abgeleitet
+# (Grieß A, Butter/Milch/Käse/Eis G, Nüsse/Pistazien/Mandeln H, Lotus-Keks und Schokolade meist mit Soja F, Börek mit
+# Ei-Milch-Glasur C); Desserts wie auf der alten Karte A, G, H. Vom Nutzer gegen die echten Rezepte zu prüfen (BRIEF).
+# Leerer Text = keine der 14 Hauptallergene.
+AL = {
+    "helva-original": "A, G", "helva-pistazie": "A, G, H", "helva-lotus": "A, F, G",
+    "helva-weisse-schokolade": "A, F, G, H", "helva-schokolade": "A, F, G", "helva-mix": "A, G, H",
+    "katmer": "A, G, H", "kuenefe": "A, G, H", "havuc": "A, G, H", "baklava": "A, G, H",
+    "goezleme": "A, G", "goezleme-teller": "A, G", "boerek": "A, C, G", "boerek-teller": "A, C, G",
+    "sandwich-sucuk": "A, G", "sandwich-haehnchen": "A, C, G", "sandwich-veggie": "A, G",
+    "tuerkischer-mokka": "", "osmanischer-mokka": "", "dibek": "", "menengic": "G",
+    "cay": "", "minztee": "", "kraeutertee": "",
+    "salep": "G", "matcha-latte": "G", "heisse-schokolade": "F, G",
+    "cafe-creme": "", "americano": "", "milchkaffee": "G",
+    "cappuccino": "G", "latte-macchiato": "G", "flat-white": "G",
+    "espresso": "", "doppio": "", "espresso-macchiato": "G", "cortado": "G",
+    "limonade": "", "frucht-limonade": "", "wasser": "", "softdrinks": "",
+    "ice-latte": "G", "ice-latte-sirup": "G", "ice-americano": "", "ice-spanish-latte": "G",
+    "ice-matcha": "G", "ice-matcha-frucht": "G", "ice-spanish-matcha": "G",
+}
+_PRODUCT_KINDS = {"single", "helva", "variants", "sizes", "row", "duo"}
+
+
+def _apply_al(o, seen):
+    if isinstance(o, dict):
+        if o.get("kind") in _PRODUCT_KINDS:
+            assert o["id"] in AL, "Allergene fehlen für " + o["id"]
+            if AL[o["id"]]:
+                o["al"] = AL[o["id"]]
+            seen.add(o["id"])
+        for v in o.values():
+            _apply_al(v, seen)
+    elif isinstance(o, list):
+        for v in o:
+            _apply_al(v, seen)
+
+
+_seen = set()
+_apply_al(CATS, _seen)
+assert _seen == set(AL), "unbekannte Produkte in AL: " + ", ".join(sorted(set(AL) - _seen))
+assert all(c in ALLERGENS for v in AL.values() for c in v.replace(" ", "").split(",") if c)
 
 DATA = dict(ui=UI, allergens=ALLERGENS, flavors=FLAV, cats=CATS)

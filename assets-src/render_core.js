@@ -21,6 +21,15 @@
     const img = (k, cls, alt) =>
       `<img${cls ? ` class="${cls}"` : ""} src="${IMG(k)}" data-asset="img/${k}.webp" alt="${esc(alt || "")}" loading="lazy" decoding="async" />`;
     let sandwichCols = null;
+    // Allergene je Produkt: nur die Buchstaben, klein und unauffällig hinter dem Namen (Erklärung in der Legende unten)
+    const alg = (a) => (a ? `<span class="alg" title="${esc(U("allergens"))}">${esc(a)}</span>` : "");
+    // Buchstaben bleiben beim Umbruch am letzten Wort des Namens
+    const nameAl = (name, a) => {
+      const n = esc(name);
+      if (!a) return n;
+      const i = n.lastIndexOf(" ");
+      return i < 0 ? `<span class="nw">${n}${alg(a)}</span>` : `${n.slice(0, i + 1)}<span class="nw">${n.slice(i + 1)}${alg(a)}</span>`;
+    };
 
     function whatBtn() {
       return `<button class="what" type="button" data-toggle aria-expanded="false"><span class="q">+</span><span class="wl">${esc(U("what"))}</span></button>`;
@@ -78,7 +87,7 @@
       const sub = it.sub ? `<p class="sub">${esc(t(it.sub))}</p>` : "";
       return `<article class="item rv${hasPic ? "" : " nopic"}" ${d} data-item="${it.id}">` +
         `<div class="item-main">${hasPic ? picHtml(it.img) : ""}` +
-        `<div class="txt"><h3>${esc(t(it.name))}${tag}</h3>${sub}${below}${it.info ? whatBtn() : ""}</div>${price}</div>` +
+        `<div class="txt"><h3>${nameAl(t(it.name), it.al)}${tag}</h3>${sub}${below}${it.info ? whatBtn() : ""}</div>${price}</div>` +
         `${flavorsHtml(it)}${vars}${explainHtml(it)}</article>`;
     }
     function rowHtml(r) {
@@ -88,7 +97,7 @@
       const tag = r.tag ? `<span class="tag">${esc(t(r.tag))}</span>` : "";
       const sub = r.sub ? `<span class="rs">${esc(t(r.sub))}</span>` : "";
       const q = r.info ? `<button class="qbtn" type="button" data-toggle aria-expanded="false" aria-label="${esc(U("what"))}">+</button>` : "";
-      return `<li class="rowi" data-item="${r.id}"><div class="row-main"><div class="rt"><span class="rn">${esc(t(r.name))}</span>${tag}${sub}</div>${price}${q}</div>${explainHtml(r)}</li>`;
+      return `<li class="rowi" data-item="${r.id}"><div class="row-main"><div class="rt"><span class="rn">${nameAl(t(r.name), r.al)}</span>${tag}${sub}</div>${price}${q}</div>${explainHtml(r)}</li>`;
     }
     function catHead(c) {
       return `<header class="cat-h rv"><p class="kicker">${esc(t(c.kicker))}</p><h2>${esc(t(c.title))}</h2><div class="orn" aria-hidden="true"><i></i><b></b><i></i></div>${c.intro ? `<p class="intro">${esc(t(c.intro))}</p>` : ""}</header>`;
@@ -115,12 +124,12 @@
         h += c.cgroups.map((g) => `<div class="sgroup-h rv"><h3>${esc(t(g.name))}</h3></div><div class="list">` + g.items.map(itemHtml).join("") + `</div>`).join("");
       }
       if (c.milk) {
-        h += `<div class="note block rv"><p class="nl">${esc(t(c.milk.label))}</p><p class="nt">${esc(t(c.milk.sub))}</p><div class="milk">${c.milk.opts.map((o) => `<span>${esc(t(o))}</span>`).join("")}</div></div>`;
+        h += `<div class="note block rv"><p class="nl">${esc(t(c.milk.label))}</p><p class="nt">${esc(t(c.milk.sub))}</p><div class="milk">${c.milk.opts.map((o, i) => `<span>${esc(t(o))}${alg(c.milk.al && c.milk.al[i])}</span>`).join("")}</div></div>`;
       }
       if (c.notes) {
         for (const n of c.notes) {
-          if (n.kind === "addon") h += `<div class="note rv"><div style="flex:1"><p class="nl">${esc(t(n.label))}</p><p class="nt">${esc(t(n.name))}</p></div><b>${eur(n.price)}</b></div>`;
-          else h += `<div class="note block rv"><p class="nl">${esc(t(n.label))}</p><ul>${n.rows.map(([l, p]) => `<li><span>${esc(t(l))}</span><b>${eur(p)}</b></li>`).join("")}</ul></div>`;
+          if (n.kind === "addon") h += `<div class="note rv"><div style="flex:1"><p class="nl">${esc(t(n.label))}</p><p class="nt">${esc(t(n.name))}${alg(n.al)}</p></div><b>${eur(n.price)}</b></div>`;
+          else h += `<div class="note block rv"><p class="nl">${esc(t(n.label))}${alg(n.al)}</p><ul>${n.rows.map(([l, p]) => `<li><span>${esc(t(l))}</span><b>${eur(p)}</b></li>`).join("")}</ul></div>`;
         }
       }
       return h + allergHtml(c) + `</section>`;
