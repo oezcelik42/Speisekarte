@@ -50,21 +50,6 @@ html, body { margin: 0; padding: 0; height: 100%; background: #000; }
   pointer-events: none;
 }
 .hinweis.an { opacity: 1; }
-/* Außen-TV hängt hochkant: Hinweis wie das Video drehen, unten mittig aus Sicht der Gäste */
-.cw .hinweis {
-  left: 6%;
-  top: 50%;
-  bottom: auto;
-  -webkit-transform: translate(-50%, -50%) rotate(90deg);
-  transform: translate(-50%, -50%) rotate(90deg);
-}
-.ccw .hinweis {
-  left: 94%;
-  top: 50%;
-  bottom: auto;
-  -webkit-transform: translate(-50%, -50%) rotate(-90deg);
-  transform: translate(-50%, -50%) rotate(-90deg);
-}
 
 /* Übersicht */
 .uebersicht {
