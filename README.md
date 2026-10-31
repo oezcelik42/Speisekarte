@@ -24,3 +24,14 @@ mit allem drin, zum Verschicken (wird nicht hochgeladen).
 - `assets/` – Produktfotos (WebP), kurze Videos (MP4 + WebM, Standbilder), Schriften, Logo.
 
 Allergene stehen nur dort, wo sie auch auf den Bildschirmkarten stehen (Desserts, Spezialitäten).
+
+## Bildschirmkarten im Fernseher-Browser
+
+Ohne Mini-PC: Der Fernseher öffnet in seinem eigenen Browser https://oezcelik42.github.io/Speisekarte/tv/
+und spielt die Karte in Dauerschleife ab. OK auf der Fernbedienung schaltet auf Vollbild.
+
+- `tv/helva/` – Helva-Karte (Übersicht und Videokarten, 40 s); das Video liegt in `tv/media/`
+  (H.264, FullHD, ohne Ton).
+- `tv/tv.js` – startet hängende Wiedergabe neu, hält den Bildschirm wach und holt neue Videofassungen.
+- Neue Fassung einer Karte: Video in `tv/media/` ersetzen und die Zahl hinter `?v=` in `tv/karten.json`
+  und in der Seite der Karte erhöhen. Laufende Fernseher tauschen das Video innerhalb von 30 Minuten aus.
