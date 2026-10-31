@@ -30,7 +30,7 @@ Allergene stehen nur dort, wo sie auch auf den Bildschirmkarten stehen (Desserts
 Ohne Mini-PC: Der Fernseher öffnet in seinem eigenen Browser https://oezcelik42.github.io/Speisekarte/tv/
 und spielt die Karte in Dauerschleife ab. OK auf der Fernbedienung schaltet auf Vollbild.
 
-- `tv/helva/` – Helva-Karte (Übersicht und Videokarten, 40 s); das Video liegt in `tv/media/`
+- `tv/helva/` – Helva-Karte (30 s alle Sorten, 10 s Videokarte Original und Pistazie); das Video liegt in `tv/media/`
   (H.264, FullHD, ohne Ton).
 - `tv/tv.js` – startet hängende Wiedergabe neu, hält den Bildschirm wach und holt neue Videofassungen.
 - Neue Fassung einer Karte: Video in `tv/media/` ersetzen und die Zahl hinter `?v=` in `tv/karten.json`
