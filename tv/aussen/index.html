@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Außen-TV · Bildschirmkarte hochkant</title>
+<link rel="icon" href="../../assets/brand/icon-48.png">
+<link rel="stylesheet" href="../tv.css">
+</head>
+<!-- Der Browser im Fernseher läuft immer quer. Das Video ist deshalb schon um 90° im Uhrzeigersinn gedreht:
+     richtig für einen Fernseher, der gegen den Uhrzeigersinn hochkant gedreht hängt. Sonst ../aussen-andersrum/ -->
+<body class="spieler cw">
+<!-- Gleiche Videoadresse wie in ../karten.json; bei einer neuen Fassung beide Nummern hinter ?v= erhöhen -->
+<video id="karte" data-karte="aussen" src="../media/aussen.mp4?v=20261031" poster="../media/aussen.jpg"
+       autoplay muted loop playsinline preload="auto"></video>
+<div id="hinweis" class="hinweis" role="status"></div>
+<script src="../tv.js"></script>
+</body>
+</html>
