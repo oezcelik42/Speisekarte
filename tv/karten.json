@@ -1,9 +1,11 @@
 {
   "helva": "media/helva-wechsel.mp4?v=20261031-2",
+  "desserts-spezial": "media/desserts-spezial.mp4?v=20261031",
+  "getraenke": "media/getraenke.mp4?v=20261031",
+  "aussen": "media/aussen.mp4?v=20261031",
+  "aussen-andersrum": "media/aussen-andersrum.mp4?v=20261031",
   "desserts": "media/desserts.mp4?v=20261031",
   "spezial": "media/spezial.mp4?v=20261031",
   "warm": "media/warm.mp4?v=20261031",
-  "kalt": "media/kalt.mp4?v=20261031",
-  "aussen": "media/aussen.mp4?v=20261031",
-  "aussen-andersrum": "media/aussen-andersrum.mp4?v=20261031"
+  "kalt": "media/kalt.mp4?v=20261031"
 }

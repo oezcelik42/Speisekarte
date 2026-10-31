@@ -30,8 +30,10 @@ Allergene stehen nur dort, wo sie auch auf den Bildschirmkarten stehen (Desserts
 Ohne Mini-PC: Der Fernseher öffnet in seinem eigenen Browser https://oezcelik42.github.io/Speisekarte/tv/
 und spielt die Karte in Dauerschleife ab. OK auf der Fernbedienung schaltet auf Vollbild.
 
-- Je Karte ein Ordner: `tv/helva/` (30 s alle Sorten, 10 s Videokarte Original und Pistazie), `tv/desserts/`,
-  `tv/spezial/`, `tv/warm/`, `tv/kalt/`. Die Videos liegen in `tv/media/` (H.264, FullHD, ohne Ton).
+- Je Bildschirm ein Ordner: `tv/helva/` (30 s alle Sorten, 10 s Videokarte Original und Pistazie),
+  `tv/desserts-spezial/` und `tv/getraenke/` (je zwei Karten im Wechsel, 10 s, mit Überblendung).
+  Die Einzelkarten liegen in `tv/desserts/`, `tv/spezial/`, `tv/warm/`, `tv/kalt/`.
+  Die Videos liegen in `tv/media/` (H.264, FullHD, ohne Ton).
 - `tv/aussen/` und `tv/aussen-andersrum/` – Außen-TV für einen hochkant hängenden Fernseher. Der Browser im
   Fernseher läuft immer quer, deshalb ist das Video schon gedreht (einmal je Richtung).
 - `tv/tv.js` – startet hängende Wiedergabe neu, hält den Bildschirm wach und holt neue Videofassungen.

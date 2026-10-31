@@ -90,8 +90,8 @@ html, body { margin: 0; padding: 0; height: 100%; background: #000; }
 }
 .karte {
   display: block;
-  width: 420px;
-  margin: 16px;
+  width: 340px;
+  margin: 12px;
   overflow: hidden;
   border: 2px solid rgba(217, 180, 106, 0.25);
   border-radius: 18px;
@@ -101,6 +101,17 @@ html, body { margin: 0; padding: 0; height: 100%; background: #000; }
   outline: none;
 }
 .karte img { display: block; width: 100%; height: auto; }
-.karte .titel { display: block; padding: 16px 20px 4px; font: 600 28px/1.2 "Fraunces", Georgia, serif; }
+.karte .titel { display: block; padding: 16px 20px 4px; font: 600 24px/1.2 "Fraunces", Georgia, serif; }
 .karte .info { display: block; padding: 0 20px 18px; color: rgba(230, 220, 200, 0.7); font-size: 17px; }
 .karte:focus, .karte:hover { border-color: #d9b46a; box-shadow: 0 0 0 4px rgba(217, 180, 106, 0.35); }
+.abschnitt {
+  margin: 8px 0 0;
+  text-align: center;
+  color: rgba(230, 220, 200, 0.6);
+  font: 600 16px/1.2 "Segoe UI", Roboto, Arial, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.karten.klein { padding-top: 8px; padding-bottom: 40px; }
+.karten.klein .karte { width: 300px; }
+.karten.klein .titel { padding-bottom: 16px; font-size: 21px; }

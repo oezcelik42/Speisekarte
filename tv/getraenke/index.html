@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Warme und kalte Getränke · Bildschirmkarte</title>
+<link rel="icon" href="../../assets/brand/icon-48.png">
+<link rel="stylesheet" href="../tv.css">
+</head>
+<body class="spieler">
+<!-- Wechsel: 10 s warme Getränke, 10 s kalte Getränke. Gleiche Videoadresse wie in ../karten.json;
+     bei einer neuen Fassung beide Nummern hinter ?v= erhöhen -->
+<video id="karte" data-karte="getraenke" src="../media/getraenke.mp4?v=20261031" poster="../media/getraenke.jpg"
+       autoplay muted loop playsinline preload="auto"></video>
+<div id="hinweis" class="hinweis" role="status"></div>
+<script src="../tv.js"></script>
+</body>
+</html>
