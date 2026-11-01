@@ -36,6 +36,8 @@ und spielt die Karte in Dauerschleife ab. OK auf der Fernbedienung schaltet auf 
   Die Videos liegen in `tv/media/` (H.264, FullHD, ohne Ton).
 - `tv/aussen/` – Außen-TV im Hochformat (1080 × 1920, ungedreht). `tv/aussen-andersrum/` war eine gedrehte
   Fassung und leitet jetzt nur noch auf `tv/aussen/` weiter.
+- `tv/getraenke-neu/` – Testfassung (52 s): Übersicht warme und kalte Getränke zusammen (29 s), danach je 10 s die
+  warme und die kalte Karte. Quelle: Projekt `getraenke-heiss-kalt` (HyperFrames).
 - `tv/tv.js` – startet hängende Wiedergabe neu, hält den Bildschirm wach und holt neue Videofassungen.
 - Neue Fassung einer Karte: Video in `tv/media/` ersetzen und die Zahl hinter `?v=` in `tv/karten.json`
   und in der Seite der Karte erhöhen. Laufende Fernseher tauschen das Video innerhalb von 30 Minuten aus.
