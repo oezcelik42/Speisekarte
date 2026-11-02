@@ -8,11 +8,11 @@
 <link rel="stylesheet" href="../tv.css">
 </head>
 <body class="spieler">
-<!-- Wechsel: 10 s warme Getränke, 10 s kalte Getränke. Gleiche Videoadresse wie in ../karten.json;
+<!-- Wechsel: 10 s warme Getränke, 10 s kalte Getränke. Gleiche Videoadresse (data-src) wie in ../karten.json;
      bei einer neuen Fassung beide Nummern hinter ?v= erhöhen -->
-<video id="karte" data-karte="getraenke" src="../media/getraenke.mp4?v=20261031-2" poster="../media/getraenke.jpg"
+<video id="karte" data-karte="getraenke" data-src="../media/getraenke.mp4?v=20261102" poster="../media/getraenke.jpg"
        autoplay muted loop playsinline preload="auto"></video>
 <div id="hinweis" class="hinweis" role="status"></div>
-<script src="../tv.js"></script>
+<script src="../tv.js?v=20261102"></script>
 </body>
 </html>

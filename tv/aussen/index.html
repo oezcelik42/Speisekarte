@@ -8,11 +8,11 @@
 <link rel="stylesheet" href="../tv.css">
 </head>
 <body class="spieler">
-<!-- Außen-TV im Hochformat (1080 × 1920, ungedreht). Gleiche Videoadresse wie in ../karten.json;
+<!-- Außen-TV im Hochformat (1080 × 1920, ungedreht). Gleiche Videoadresse (data-src) wie in ../karten.json;
      bei einer neuen Fassung beide Nummern hinter ?v= erhöhen -->
-<video id="karte" data-karte="aussen" src="../media/aussen.mp4?v=20261031-2" poster="../media/aussen.jpg"
+<video id="karte" data-karte="aussen" data-src="../media/aussen.mp4?v=20261102" poster="../media/aussen.jpg"
        autoplay muted loop playsinline preload="auto"></video>
 <div id="hinweis" class="hinweis" role="status"></div>
-<script src="../tv.js"></script>
+<script src="../tv.js?v=20261102"></script>
 </body>
 </html>

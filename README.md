@@ -33,11 +33,16 @@ und spielt die Karte in Dauerschleife ab. OK auf der Fernbedienung schaltet auf 
 - Je Bildschirm ein Ordner: `tv/helva/` (30 s alle Sorten, 10 s Videokarte Original und Pistazie),
   `tv/desserts-spezial/` und `tv/getraenke/` (je zwei Karten im Wechsel, 10 s, mit Überblendung).
   Die Einzelkarten liegen in `tv/desserts/`, `tv/spezial/`, `tv/warm/`, `tv/kalt/`.
-  Die Videos liegen in `tv/media/` (H.264, FullHD, ohne Ton).
+  Die Videos liegen in `tv/media/` (H.264, FullHD, ohne Ton, CRF 20 mit höchstens 8 Mbit/s – klein genug, dass der
+  Fernseher die ganze Datei in den Speicher lädt).
 - `tv/aussen/` – Außen-TV im Hochformat (1080 × 1920, ungedreht). `tv/aussen-andersrum/` war eine gedrehte
   Fassung und leitet jetzt nur noch auf `tv/aussen/` weiter.
 - `tv/getraenke-neu/` – Testfassung (52 s): Übersicht warme und kalte Getränke zusammen (29 s), danach je 10 s die
   warme und die kalte Karte. Quelle: Projekt `getraenke-heiss-kalt` (HyperFrames).
-- `tv/tv.js` – startet hängende Wiedergabe neu, hält den Bildschirm wach und holt neue Videofassungen.
+- `tv/tv.js` – lädt das Video einmal ganz in den Arbeitsspeicher und spielt es von dort (kein Ruckeln, wenn das WLAN
+  schwankt), stößt hängende Wiedergabe in Stufen wieder an, hält den Bildschirm wach, zeigt Hinweise nur kurz und holt
+  neue Videofassungen. In den Seiten steht die Videoadresse deshalb in `data-src`, nicht in `src`.
 - Neue Fassung einer Karte: Video in `tv/media/` ersetzen und die Zahl hinter `?v=` in `tv/karten.json`
-  und in der Seite der Karte erhöhen. Laufende Fernseher tauschen das Video innerhalb von 30 Minuten aus.
+  und in der Seite der Karte (`data-src`) erhöhen. Laufende Fernseher laden sie innerhalb von 30 Minuten im
+  Hintergrund und übernehmen sie am Schleifenanfang. Nach einer Änderung an `tv.js` die Zahl hinter `tv.js?v=` in
+  allen Seiten erhöhen und die Seiten auf den Fernsehern einmal neu öffnen.
